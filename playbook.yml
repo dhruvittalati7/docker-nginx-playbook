@@ -1,0 +1,8 @@
+- hosts: '{{ container }}'
+  roles:
+     - { role: nginx_role}
+  tasks:
+    - name: Commit changes
+      shell:
+        cmd: "docker commit {{ container }}"
+      delegate_to: localhost
